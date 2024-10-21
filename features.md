@@ -1,6 +1,8 @@
 # features for netflix gpt
 
 -routing
+-firebase
+-authentication
 
 ## Login/Sign Up
 
