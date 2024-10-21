@@ -1,8 +1,12 @@
 # features for netflix gpt
 
+-routing
+
 ## Login/Sign Up
 
--Sing In/ Sign Up form
+-Sing In/ Sign Up form (toggling b/w them)
+-Form Validation
+-useRef Hook
 -redirect to Browse Page
 
 ## Browse Page
