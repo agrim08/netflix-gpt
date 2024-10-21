@@ -2,18 +2,26 @@ import React, { useRef } from "react";
 import Header from "./Header";
 import { useState } from "react";
 import { checkValidation } from "../utils/validate";
+import { useNavigate } from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
+  const dispatch = useDispatch();
 
   const email = useRef(null);
   const password = useRef(null);
+  const name = useRef(null);
+
+  const navigate = useNavigate();
 
   const handleFormData = () => {
     //* validate form data
@@ -35,6 +43,26 @@ const Login = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           console.log(user);
+          updateProfile(user, {
+            displayName: name.current.value,
+            photoURL:
+              "https://instagram.fdel64-1.fna.fbcdn.net/v/t51.2885-19/337660801_774662850827927_6492734631785120196_n.jpg?_nc_ht=instagram.fdel64-1.fna.fbcdn.net&_nc_cat=111&_nc_ohc=0SmoLzYLpkUQ7kNvgFcTtTA&_nc_gid=f0b417bdf93f44d09946de9bd2374a27&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_AYCKkhWWFu3Be0Y4mjAkvUpquJD7fRQN8XhfnGreg-G5_A&oe=671C7375&_nc_sid=7a9f4",
+          })
+            .then(() => {
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+              dispatch(
+                addUser({
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                  photoURL: photoURL,
+                })
+              );
+              navigate("/browse");
+            })
+            .catch((error) => {
+              setErrorMessage(error.message);
+            });
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -49,11 +77,9 @@ const Login = () => {
         password.current.value
       )
         .then((userCredential) => {
-          // Signed in
           const user = userCredential.user;
           console.log(user);
-
-          // ...
+          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -86,6 +112,7 @@ const Login = () => {
         </h1>
         {!isSignIn ? (
           <input
+            ref={name}
             type="text"
             placeholder="Username"
             className="p-2 m-2 bg-[#000438] text-white w-4/5 h-16 border border-white rounded-md opacity-60"

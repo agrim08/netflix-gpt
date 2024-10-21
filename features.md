@@ -3,6 +3,9 @@
 -routing
 -firebase
 -authentication
+-signIn/signUp
+-redux store
+--userSlice
 
 ## Login/Sign Up
 
