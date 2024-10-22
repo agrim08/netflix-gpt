@@ -10,6 +10,7 @@ import {
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { instaPfp } from "../utils/constants";
 
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -42,8 +43,7 @@ const Login = () => {
           console.log(user);
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL:
-              "https://instagram.fdel64-1.fna.fbcdn.net/v/t51.2885-19/337660801_774662850827927_6492734631785120196_n.jpg?_nc_ht=instagram.fdel64-1.fna.fbcdn.net&_nc_cat=111&_nc_ohc=0SmoLzYLpkUQ7kNvgFcTtTA&_nc_gid=f0b417bdf93f44d09946de9bd2374a27&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_AYCKkhWWFu3Be0Y4mjAkvUpquJD7fRQN8XhfnGreg-G5_A&oe=671C7375&_nc_sid=7a9f4",
+            photoURL: instaPfp,
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
