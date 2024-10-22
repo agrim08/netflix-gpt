@@ -14,3 +14,6 @@ export const API_OPTIONS = {
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMTA1NDUzODhhMjhhODEwMmQ0YTJiMDA4MzU3MTk1ZCIsIm5iZiI6MTcyOTYwNTU2Ny4zMzgzOTUsInN1YiI6IjY3MTdhZDRlNjU0MThmMmI4NmJlY2RmOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.W8sMDvCW3RY9x9lEDeW9EWkO9cXTjQ4WXUvXacAUgVo",
   },
 };
+
+export const MAIN_MOVIE_LOGO =
+  "https://lumiere-a.akamaihd.net/v1/images/romulus_instagram_payoff_poster_united_kingdom_12_dd56170b.jpeg?region=0%2C275%2C800%2C450";
