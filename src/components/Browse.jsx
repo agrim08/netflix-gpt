@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Header from "./Header";
 import useMostPopularMovies from "../hooks/useMostPopularMovies";
 import MainContainer from "./MainContainer";

@@ -2,7 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const movieSlice = createSlice({
   name: "movies",
-  initialState: { mostPopularMovies: [], trailerVideo: null },
+  initialState: {
+    mostPopularMovies: [],
+    trailerVideo: null,
+    nowPlayingMovies: null,
+  },
   reducers: {
     addMovie: (state, action) => {
       state.mostPopularMovies = action.payload;
