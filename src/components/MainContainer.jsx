@@ -5,11 +5,11 @@ import VideoBgc from "./VideoBgc";
 
 const MainContainer = () => {
   const moviesList = useSelector((store) => store?.movies?.mostPopularMovies);
-  const [mainMovie, setMainMovie] = useState({});
+  const [mainMovie, setMainMovie] = useState("");
   const { original_title, overview, id } = mainMovie;
 
   const handleMovies = () => {
-    if (!moviesList || moviesList.length === 0) return;
+    if (!moviesList || moviesList.length === 0) return null;
     setMainMovie(moviesList[5]);
   };
 
@@ -19,7 +19,7 @@ const MainContainer = () => {
 
   // Use another useEffect to handle mainMovie updates
   useEffect(() => {
-    if (Object.keys(mainMovie).length > 0) {
+    if (Object.keys(mainMovie)?.length > 0) {
     }
   }, [mainMovie]);
 
