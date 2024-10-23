@@ -17,3 +17,5 @@ export const API_OPTIONS = {
 
 export const MAIN_MOVIE_LOGO =
   "https://lumiere-a.akamaihd.net/v1/images/romulus_instagram_payoff_poster_united_kingdom_12_dd56170b.jpeg?region=0%2C275%2C800%2C450";
+
+export const MOVIE_POSTER_CDN = "https://image.tmdb.org/t/p/w500/";
