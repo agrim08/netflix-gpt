@@ -15,7 +15,6 @@ const MainContainer = () => {
 
   useEffect(() => {
     handleMovies();
-    console.log(moviesList);
   }, [moviesList]);
 
   // Use another useEffect to handle mainMovie updates
