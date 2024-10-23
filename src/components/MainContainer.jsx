@@ -10,14 +10,13 @@ const MainContainer = () => {
 
   const handleMovies = () => {
     if (!moviesList || moviesList.length === 0) return null;
-    setMainMovie(moviesList[5]);
+    setMainMovie(moviesList[7]);
   };
 
   useEffect(() => {
     handleMovies();
   }, [moviesList]);
 
-  // Use another useEffect to handle mainMovie updates
   useEffect(() => {
     if (Object.keys(mainMovie)?.length > 0) {
     }
