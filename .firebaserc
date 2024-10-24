@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "netflixgpt-cde59"
-  }
+    "default": "myreactapp-b3755",
+    "my-react-project": "myreactapp-b3755"
+  },
+  "targets": {},
+  "etags": {}
 }
