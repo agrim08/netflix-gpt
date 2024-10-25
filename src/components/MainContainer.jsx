@@ -11,7 +11,7 @@ const MainContainer = () => {
 
   const handleMovies = () => {
     if (!moviesList || moviesList.length === 0) return null;
-    setMainMovie(moviesList[4]);
+    setMainMovie(moviesList[1]);
   };
 
   useEffect(() => {
