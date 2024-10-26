@@ -30,7 +30,7 @@ const GptSearchBar = () => {
         geminiResult.response.candidates[0].content.parts[0].text.split(",");
       const searchResults =
         geminiResult.response.candidates[0].content.parts[0].text;
-      const promiseArray = gptMoviesList.map((movie) =>
+      const promiseArray = gptMoviesList.map((movie, index) =>
         fetchMoviesFromTmdb(movie)
       );
       const tmdbResponse = await Promise.all(promiseArray);
