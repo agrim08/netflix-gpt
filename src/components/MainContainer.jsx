@@ -7,21 +7,14 @@ const MainContainer = () => {
   const moviesList = useSelector((store) => store?.movies?.mostPopularMovies);
   const [mainMovie, setMainMovie] = useState("");
   const { original_title, overview, id } = mainMovie;
-  console.log(moviesList);
-
   const handleMovies = () => {
     if (!moviesList || moviesList.length === 0) return null;
-    setMainMovie(moviesList[1]);
+    setMainMovie(moviesList[0]);
   };
 
   useEffect(() => {
     handleMovies();
   }, [moviesList]);
-
-  useEffect(() => {
-    if (Object.keys(mainMovie)?.length > 0) {
-    }
-  }, [mainMovie]);
 
   return (
     <div>

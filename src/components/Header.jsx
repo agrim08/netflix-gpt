@@ -54,10 +54,15 @@ const Header = () => {
 
   return (
     <div className="absolute bg-gradient-to-b from-black z-10 w-full flex justify-between bg-transparent">
-      <img className="h-36 w-52 mx-[72px] -my-4" src={logo} alt="logo" />
+      <img
+        className="h-36 w-52 mx-[72px] -my-4 cursor-pointer"
+        src={logo}
+        alt="logo"
+        onClick={showGptSearch ? handleGptSearchClick : () => {}}
+      />
       {showGptSearch && (
         <select
-          className="py-2 px-5 mt-8  h-12 text-balance text-white bg-gray-900 bg-opacity-80"
+          className="cursor-pointer py-2 px-5 mt-8 h-12 text-balance text-white bg-gray-900 bg-opacity-80"
           onChange={handleLanguageChange}
         >
           {SUPPORTED_LANGUAGES.map((lang) => (
@@ -82,7 +87,7 @@ const Header = () => {
               className="py-2 px-6 mt-2 mx-1 bg-yellow-500 rounded-lg text-white"
               onClick={handleGptSearchClick}
             >
-              GPT Serach
+              GPT Search
             </button>
           )}
           <button

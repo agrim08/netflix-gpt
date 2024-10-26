@@ -58,6 +58,9 @@ const GptSearchBar = () => {
           ref={searchText}
           className="px-10 py-2 m-4 bg-white rounded-sm col-span-9"
           placeholder={lang[langKey]?.gptSearchplaceHolder}
+          onChange={(e) => {
+            if (e.key === "Enter") handleGeminiSearchClick();
+          }}
         />
         <button
           className="bg-red-700 text-white py-2 px-2 col-span-3 m-4"

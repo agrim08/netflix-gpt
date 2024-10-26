@@ -3,10 +3,10 @@ import { useSelector } from "react-redux";
 import useTrailer from "../hooks/useTrailer";
 
 const VideoBgc = ({ movieId }) => {
-  useTrailer();
+  useTrailer(movieId);
   const trailerVideo = useSelector((store) => store?.movies?.trailerVideo);
 
-  return (
+  return movieId && trailerVideo ? (
     <div className="w-screen">
       <iframe
         className="w-screen aspect-video bg-gradient-to-b from-black z-10 "
@@ -20,6 +20,8 @@ const VideoBgc = ({ movieId }) => {
         referrerPolicy="strict-origin-when-cross-origin"
       ></iframe>
     </div>
+  ) : (
+    <div className="w-screen aspect-video"></div>
   );
 };
 
