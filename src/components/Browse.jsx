@@ -6,6 +6,7 @@ import SecondaryContainer from "./SecondaryContainer";
 import useNowPlaingMovies from "../hooks/useNowPlaingMovies";
 import GptSearch from "./GptSearch";
 import { useSelector } from "react-redux";
+import Footer from "./Footer";
 
 const Browse = () => {
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
@@ -20,6 +21,7 @@ const Browse = () => {
         <div className="flex flex-col">
           <MainContainer />
           <SecondaryContainer />
+          <Footer />
         </div>
       )}
     </div>
