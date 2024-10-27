@@ -31,10 +31,10 @@ export const SUPPORTED_LANGUAGES = [
 export const GEMINI_API_KEY = process.env.REACT_APP_GEMINI_API_KEY;
 
 export const API_ENDPOINTS = {
-  GET_POPULAR_MOVIES: "https://api.themoviedb.org/3/movie/popular?&page=1",
+  GET_POPULAR_MOVIES: "https://api.themoviedb.org/3/movie/popular?&page=4",
   GET_TRAILER: (id) =>
     `https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`,
-  GET_NOW_PLAYING: "https://api.themoviedb.org/3/movie/now_playing?&page=1",
+  GET_NOW_PLAYING: "https://api.themoviedb.org/3/movie/now_playing?&page=2",
   GET_TOP_RATED_MOVIES:
     "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
 };
