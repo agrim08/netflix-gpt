@@ -6,6 +6,7 @@ const GptMovieSuggesstions = () => {
   const { movieResultsName, movieList } = useSelector((store) => store.gpt);
   if (!movieResultsName) return null;
   const movieNameArray = movieResultsName.split(",");
+
   return (
     <div className="p-4 m-4 bg-black bg-opacity-90 text-white">
       <div>

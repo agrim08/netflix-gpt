@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import lang from "../utils/languageConstants";
 import { useDispatch, useSelector } from "react-redux";
 import { GoogleGenerativeAI } from "@google/generative-ai";
@@ -6,6 +6,7 @@ import { API_OPTIONS, GEMINI_API_KEY } from "../utils/constants";
 import { addGptMoviesResult } from "../utils/gptSlice";
 
 const GptSearchBar = () => {
+  const [loading, setIsLoading] = useState(false);
   const searchText = useRef(null);
   const dispatch = useDispatch();
   const fetchMoviesFromTmdb = async (movie) => {
@@ -19,6 +20,7 @@ const GptSearchBar = () => {
     return jsonData.results;
   };
   const handleGeminiSearchClick = async () => {
+    setIsLoading(true);
     const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
     const prompt =
@@ -34,7 +36,6 @@ const GptSearchBar = () => {
         fetchMoviesFromTmdb(movie)
       );
       const tmdbResponse = await Promise.all(promiseArray);
-      console.log(tmdbResponse);
       dispatch(
         addGptMoviesResult({
           movieList: tmdbResponse,
@@ -43,6 +44,8 @@ const GptSearchBar = () => {
       );
     } catch (error) {
       console.error("Error generating content:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -56,17 +59,17 @@ const GptSearchBar = () => {
         <input
           type="text"
           ref={searchText}
-          className="px-10 py-2 m-4 bg-white rounded-sm col-span-9"
+          className="px-10 py-2 my-4 ml-2 bg-white rounded-tl-sm col-span-9"
           placeholder={lang[langKey]?.gptSearchplaceHolder}
           onChange={(e) => {
             if (e.key === "Enter") handleGeminiSearchClick();
           }}
         />
         <button
-          className="bg-red-700 text-white py-2 px-2 col-span-3 m-4"
+          className="bg-red-700 text-white py-2 px-2 mx-[3px] text-md col-span-3 my-4 mr-2  hover:bg-red-400 focus:border-black rounded-r-sm"
           onClick={handleGeminiSearchClick}
         >
-          {lang[langKey]?.search}
+          {loading ? <span>Loading...</span> : lang[langKey]?.search}
         </button>
       </form>
     </div>
