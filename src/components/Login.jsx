@@ -10,7 +10,7 @@ import {
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
-import { instaPfp, netflixBackgraound } from "../utils/constants";
+import { netflixBackgraound } from "../utils/constants";
 
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -41,7 +41,6 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL: instaPfp,
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
