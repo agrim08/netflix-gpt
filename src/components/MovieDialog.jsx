@@ -44,19 +44,22 @@ const MovieDialog = () => {
 
   return (
     <>
+      {/* Overlay for blurring the background */}
       <div
         className={`fixed inset-0 bg-black bg-opacity-70 backdrop-blur-md z-40 transition-opacity duration-500 ease-in-out ${
           isDialogOpen ? "opacity-100" : "opacity-0"
         }`}
       ></div>
 
+      {/* Dialog Box */}
       <div
-        className={`fixed bottom-0 left-0 w-full bg-gradient-to-b from-gray-900 to-black text-white rounded-t-3xl shadow-2xl z-50 transition-transform duration-500 ease-in-out ${
+        className={`fixed bottom-0 left-0 w-full space-y-5 bg-gradient-to-b from-gray-950 to-black text-white rounded-t-3xl shadow-2xl z-50 transition-transform duration-500 ease-in-out ${
           isDialogOpen ? "translate-y-0" : "translate-y-full"
-        } max-h-[90vh] flex flex-col overflow-hidden`}
+        } max-h-[85vh] flex flex-col overflow-hidden`}
       >
+        {/* Close Button - Centered at the top */}
         <button
-          className="absolute top-4 left-1/2 transform -translate-x-1/2 w-12 h-12 flex items-center justify-center bg-gray-800 rounded-full hover:bg-gray-700 transition-all duration-300 cursor-pointer"
+          className="absolute top-4 mb-5 left-1/2 transform -translate-x-1/2 w-12 h-12 flex items-center justify-center bg-gray-800 rounded-full hover:bg-gray-700 transition-all duration-300 cursor-pointer"
           onClick={() => dispatch(closeDialog())}
           aria-label="Close dialog"
         >
@@ -75,7 +78,9 @@ const MovieDialog = () => {
           </svg>
         </button>
 
-        <div className="flex flex-col lg:flex-row p-4 sm:p-6 pt-16 pb-8 gap-6 max-w-full sm:max-w-7xl mx-auto">
+        {/* Main Content - Trailer and Description Side by Side */}
+        <div className="flex flex-col lg:flex-row p-6 pt-16 pb-8 gap-8 max-w-7xl mx-auto">
+          {/* Trailer Section */}
           <div className="w-full lg:w-2/3">
             {trailer ? (
               <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
@@ -113,11 +118,12 @@ const MovieDialog = () => {
             )}
           </div>
 
+          {/* Description Section */}
           <div className="w-full lg:w-1/3 flex flex-col space-y-4">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
+            <h2 className="text-3xl font-bold text-white leading-tight">
               {selectedMovie.title || selectedMovie.original_title}
             </h2>
-            <p className="text-gray-300 text-sm sm:text-base leading-relaxed line-clamp-6">
+            <p className="text-gray-300 text-base leading-relaxed line-clamp-6">
               {selectedMovie.overview}
             </p>
             <button
