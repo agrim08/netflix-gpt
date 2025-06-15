@@ -1,0 +1,34 @@
+/* Hide scrollbar by default */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none !important;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none !important; /* IE and Edge */
+  scrollbar-width: none !important; /* Firefox */
+}
+
+/* Show scrollbar on hover with higher specificity */
+div.scrollbar-hide.hover\:scrollbar-show:hover::-webkit-scrollbar {
+  display: block !important;
+}
+div.scrollbar-hide.hover\:scrollbar-show:hover {
+  -ms-overflow-style: auto !important; /* IE and Edge */
+  scrollbar-width: thin !important; /* Firefox */
+  scrollbar-color: #4a4a4a #2d2d2d !important; /* Firefox: thumb track */
+}
+
+/* Customize scrollbar for Webkit browsers */
+div.scrollbar-hide.hover\:scrollbar-show:hover::-webkit-scrollbar {
+  height: 8px !important;
+}
+div.scrollbar-hide.hover\:scrollbar-show:hover::-webkit-scrollbar-track {
+  background: #2d2d2d !important; /* Dark gray for track */
+  border-radius: 8px !important;
+}
+div.scrollbar-hide.hover\:scrollbar-show:hover::-webkit-scrollbar-thumb {
+  background: #4a4a4a !important; /* Slightly lighter dark gray for thumb */
+  border-radius: 8px !important;
+}
+div.scrollbar-hide.hover\:scrollbar-show:hover::-webkit-scrollbar-thumb:hover {
+  background: #5e5e5e !important; /* Even lighter gray on hover */
+}

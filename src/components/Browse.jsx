@@ -13,15 +13,17 @@ const Browse = () => {
   useMostPopularMovies();
   useNowPlaingMovies();
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col overflow-x-hidden">
       <Header />
       {showGptSearch ? (
         <GptSearch />
       ) : (
-        <div className="flex flex-col">
+        <div className="flex flex-col bg-black">
           <MainContainer />
           <SecondaryContainer />
+          <div className="mt-10 bg-black">
           <Footer />
+          </div>
         </div>
       )}
     </div>
