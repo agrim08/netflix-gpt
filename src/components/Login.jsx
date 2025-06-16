@@ -75,11 +75,11 @@ const Login = () => {
   return (
     <div>
       <Header />
-      <div className="absolute">
-        <img className="w-full" src={netflixBackground} alt="bg-image" />
+      <div className="absolute inset-0">
+        <img className="w-full h-full object-cover" src={netflixBackground} alt="bg-image" />
       </div>
       <form
-        className="absolute p-12 bg-[rgba(0,0,0,0.80)] w-2/5 h-full my-auto top-24 bottom-0 mx-auto right-0 left-0 flex flex-col items-center rounded-md"
+        className="absolute p-4 sm:p-8 md:p-12 bg-[rgba(0,0,0,0.80)] w-11/12 sm:w-4/5 md:w-2/5 top-16 sm:top-20 md:top-24 mx-auto right-0 left-0 flex flex-col items-center rounded-md"
         onSubmit={(e) => e.preventDefault()}
       >
         <h1 className="text-white mb-6 text-3xl font-bold w-4/5">
@@ -142,7 +142,7 @@ const Login = () => {
         {isSignIn && (
           <div className="flex w-4/5 items-center justify-start gap-4">
             <input type="checkbox" className="h-5 w-5" />
-            <div className="text-white text-lg">Remember me</div>
+            <div className="text founder-white text-lg text-white">Remember me</div>
           </div>
         )}
 
